@@ -1,7 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import { supabase } from '@/lib/supabase';
 import { Order, Service } from '@/types';
 import OrderDetails from '@/components/orders/OrderDetails';
@@ -15,6 +14,21 @@ const OrderDetailsPage: React.FC = () => {
   const [order, setOrder] = useState<(Order & { services: Service }) | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Update document title and meta tags
+    document.title = 'Order Details - Trust Design Hub';
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'View details of your design order at Trust Design Hub.');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = 'View details of your design order at Trust Design Hub.';
+      document.head.appendChild(meta);
+    }
+  }, []);
 
   useEffect(() => {
     const fetchOrder = async () => {
@@ -86,19 +100,14 @@ const OrderDetailsPage: React.FC = () => {
   }
 
   return (
-    <>
-      <Helmet>
-        <title>Order Details - Trust Design Hub</title>
-        <meta name="description" content="View details of your design order at Trust Design Hub." />
-      </Helmet>
-      
-      <div className="container mx-auto px-4 py-12">
-        <div className="max-w-3xl mx-auto">
-          <OrderDetails order={order} />
-        </div>
+    <div className="container mx-auto px-4 py-12">
+      <div className="max-w-3xl mx-auto">
+        <OrderDetails order={order} />
       </div>
-    </>
+    </div>
   );
 };
+
+export default OrderDetailsPage;
 
 export default OrderDetailsPage;

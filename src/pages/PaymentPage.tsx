@@ -1,7 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import { supabase } from '@/lib/supabase';
 import { Order, Service } from '@/types';
 import PaymentForm from '@/components/payments/PaymentForm';
@@ -15,6 +14,21 @@ const PaymentPage: React.FC = () => {
   const [order, setOrder] = useState<(Order & { services: Service }) | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Update document title and meta tags
+    document.title = 'Complete Payment - Trust Design Hub';
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Complete your payment for design services at Trust Design Hub.');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = 'Complete your payment for design services at Trust Design Hub.';
+      document.head.appendChild(meta);
+    }
+  }, []);
 
   useEffect(() => {
     const fetchOrder = async () => {
@@ -91,19 +105,14 @@ const PaymentPage: React.FC = () => {
   }
 
   return (
-    <>
-      <Helmet>
-        <title>Complete Payment - Trust Design Hub</title>
-        <meta name="description" content="Complete your payment for design services at Trust Design Hub." />
-      </Helmet>
-      
-      <div className="container mx-auto px-4 py-12">
-        <div className="max-w-3xl mx-auto">
-          <PaymentForm order={order} />
-        </div>
+    <div className="container mx-auto px-4 py-12">
+      <div className="max-w-3xl mx-auto">
+        <PaymentForm order={order} />
       </div>
-    </>
+    </div>
   );
 };
+
+export default PaymentPage;
 
 export default PaymentPage;

@@ -1,7 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import { supabase } from '@/lib/supabase';
 import { Service } from '@/types';
 import OrderForm from '@/components/orders/OrderForm';
@@ -45,6 +44,23 @@ const OrderPage: React.FC = () => {
     fetchService();
   }, [id]);
 
+  // Update document title and meta when service data is loaded
+  useEffect(() => {
+    if (service) {
+      document.title = `Order ${service.name} - Trust Design Hub`;
+      
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) {
+        metaDescription.setAttribute('content', `Place your order for ${service.name} at Trust Design Hub.`);
+      } else {
+        const meta = document.createElement('meta');
+        meta.name = 'description';
+        meta.content = `Place your order for ${service.name} at Trust Design Hub.`;
+        document.head.appendChild(meta);
+      }
+    }
+  }, [service]);
+
   if (loading) {
     return (
       <div className="container mx-auto px-4 py-12">
@@ -71,28 +87,23 @@ const OrderPage: React.FC = () => {
   }
 
   return (
-    <>
-      <Helmet>
-        <title>Order {service.name} - Trust Design Hub</title>
-        <meta name="description" content={`Place your order for ${service.name} at Trust Design Hub.`} />
-      </Helmet>
-      
-      <div className="container mx-auto px-4 py-12">
-        <div className="max-w-3xl mx-auto">
-          <Button 
-            variant="ghost" 
-            className="mb-6"
-            onClick={() => navigate(`/service/${id}`)}
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Service Details
-          </Button>
-          
-          <OrderForm service={service} />
-        </div>
+    <div className="container mx-auto px-4 py-12">
+      <div className="max-w-3xl mx-auto">
+        <Button 
+          variant="ghost" 
+          className="mb-6"
+          onClick={() => navigate(`/service/${id}`)}
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back to Service Details
+        </Button>
+        
+        <OrderForm service={service} />
       </div>
-    </>
+    </div>
   );
 };
+
+export default OrderPage;
 
 export default OrderPage;
