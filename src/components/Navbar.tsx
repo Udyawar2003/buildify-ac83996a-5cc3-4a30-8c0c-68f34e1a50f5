@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '../components/ui/button';
 import { Link } from 'react-router-dom';
 import { Brain, ShoppingBag } from 'lucide-react';
 
@@ -29,9 +29,6 @@ const Navbar = () => {
       </div>
     </header>
   );
-};
-
 export default Navbar;
-};
 
 export default Navbar;

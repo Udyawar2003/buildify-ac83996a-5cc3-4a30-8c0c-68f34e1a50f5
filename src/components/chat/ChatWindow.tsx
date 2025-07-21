@@ -1,10 +1,10 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Message } from '@/types';
+import { Message } from '../../types';
 import ChatHeader from './ChatHeader';
 import ChatMessage from './ChatMessage';
 import ChatInput from './ChatInput';
-import { sendMessageToAmeen, getConversationMessages } from '@/lib/ameen-service';
+import { sendMessageToAmeen, getConversationMessages } from '../../lib/ameen-service';
 
 interface ChatWindowProps {
   conversationId?: string;
@@ -35,7 +35,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({
         {
           id: 'welcome',
           conversation_id: '',
-          content: "Hello! I'm Ameen, your business assistant. How can I help you today?",
+          content: "Hello! I'm Ameen, your digital product business assistant. I can help you create and manage digital products, process sales, track earnings, and handle withdrawals. How can I assist you today?",
           role: 'assistant',
           created_at: new Date().toISOString(),
         },
@@ -133,5 +133,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({
     </div>
   );
 };
+
+export default ChatWindow;
 
 export default ChatWindow;

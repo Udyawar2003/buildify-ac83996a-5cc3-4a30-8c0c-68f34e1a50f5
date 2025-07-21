@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '../components/ui/button';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, Palette } from 'lucide-react';
 
@@ -31,9 +31,6 @@ const Hero = () => {
       </div>
     </section>
   );
-};
-
-export default Hero;
 };
 
 export default Hero;
