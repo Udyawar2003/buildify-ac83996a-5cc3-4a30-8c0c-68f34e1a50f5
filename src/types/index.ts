@@ -118,3 +118,145 @@ export interface AmeenResponse {
   response: string;
   conversationId: string;
 }
+
+// Digital Product Types
+export interface DigitalProduct {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  category: DigitalProductCategory;
+  preview_images: string[];
+  download_file: string;
+  is_active: boolean;
+  tags: string[];
+  created_at: string;
+  updated_at: string;
+}
+
+export type DigitalProductCategory = 
+  | 'logo' 
+  | 'poster' 
+  | 'ebook' 
+  | 'planner' 
+  | 'notes' 
+  | 'ui_ux' 
+  | 'quranic_journal' 
+  | 'other';
+
+export interface DigitalProductPurchase {
+  id: string;
+  product_id: string;
+  customer_id: string;
+  payment_id: string;
+  download_link: string;
+  download_count: number;
+  download_expiry?: string;
+  created_at: string;
+}
+
+export interface DigitalProductPayment {
+  id: string;
+  purchase_id: string;
+  amount: number;
+  currency: string;
+  amount_inr: number;
+  status: 'completed' | 'refunded';
+  payment_method: string;
+  transaction_id?: string;
+  profit_amount: number;
+  growth_fund_amount: number;
+  expense_amount: number;
+  created_at: string;
+}
+
+export interface InfiniteVaultBackup {
+  id: string;
+  type: 'product' | 'purchase' | 'payment' | 'customer' | 'file';
+  data: any;
+  reference_id: string;
+  created_at: string;
+}
+
+export interface MarketingContent {
+  id: string;
+  product_id: string;
+  content_type: 'blog' | 'social' | 'email' | 'website';
+  title: string;
+  content: string;
+  image?: string;
+  is_published: boolean;
+  created_at: string;
+  updated_at: string;
+}
+
+// Digital Product Types
+export interface DigitalProduct {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  category: DigitalProductCategory;
+  preview_images: string[];
+  download_file: string;
+  is_active: boolean;
+  tags: string[];
+  created_at: string;
+  updated_at: string;
+}
+
+export type DigitalProductCategory = 
+  | 'logo' 
+  | 'poster' 
+  | 'ebook' 
+  | 'planner' 
+  | 'notes' 
+  | 'ui_ux' 
+  | 'quranic_journal' 
+  | 'other';
+
+export interface DigitalProductPurchase {
+  id: string;
+  product_id: string;
+  customer_id: string;
+  payment_id: string;
+  download_link: string;
+  download_count: number;
+  download_expiry?: string;
+  created_at: string;
+}
+
+export interface DigitalProductPayment {
+  id: string;
+  purchase_id: string;
+  amount: number;
+  currency: string;
+  amount_inr: number;
+  status: 'completed' | 'refunded';
+  payment_method: string;
+  transaction_id?: string;
+  profit_amount: number;
+  growth_fund_amount: number;
+  expense_amount: number;
+  created_at: string;
+}
+
+export interface InfiniteVaultBackup {
+  id: string;
+  type: 'product' | 'purchase' | 'payment' | 'customer' | 'file';
+  data: any;
+  reference_id: string;
+  created_at: string;
+}
+
+export interface MarketingContent {
+  id: string;
+  product_id: string;
+  content_type: 'blog' | 'social' | 'email' | 'website';
+  title: string;
+  content: string;
+  image?: string;
+  is_published: boolean;
+  created_at: string;
+  updated_at: string;
+}

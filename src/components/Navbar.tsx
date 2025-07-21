@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Brain } from 'lucide-react';
+import { Brain, ShoppingBag } from 'lucide-react';
 
 const Navbar = () => {
   return (
@@ -15,9 +15,9 @@ const Navbar = () => {
         
         <nav className="hidden md:flex space-x-8">
           <Link to="/" className="text-gray-200 hover:text-blue-500 transition-colors">Home</Link>
-          <a href="#features" className="text-gray-200 hover:text-blue-500 transition-colors">Features</a>
-          <a href="#" className="text-gray-200 hover:text-blue-500 transition-colors">About</a>
-          <a href="#" className="text-gray-200 hover:text-blue-500 transition-colors">Contact</a>
+          <Link to="/services" className="text-gray-200 hover:text-blue-500 transition-colors">Services</Link>
+          <Link to="/digital-products" className="text-gray-200 hover:text-blue-500 transition-colors">Digital Products</Link>
+          <Link to="/my-digital-products" className="text-gray-200 hover:text-blue-500 transition-colors">My Purchases</Link>
         </nav>
         
         <div className="flex items-center">
@@ -29,6 +29,9 @@ const Navbar = () => {
       </div>
     </header>
   );
+};
+
+export default Navbar;
 };
 
 export default Navbar;
