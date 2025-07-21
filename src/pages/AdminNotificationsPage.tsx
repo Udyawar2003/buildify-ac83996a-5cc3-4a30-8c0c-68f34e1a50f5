@@ -26,5 +26,3 @@ const AdminNotificationsPage: React.FC = () => {
 };
 
 export default AdminNotificationsPage;
-
-export default AdminNotificationsPage;

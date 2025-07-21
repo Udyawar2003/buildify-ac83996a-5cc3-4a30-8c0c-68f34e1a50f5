@@ -105,5 +105,3 @@ const ServiceDetailsPage: React.FC = () => {
 };
 
 export default ServiceDetailsPage;
-
-export default ServiceDetailsPage;

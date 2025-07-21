@@ -109,5 +109,3 @@ const OrderDetailsPage: React.FC = () => {
 };
 
 export default OrderDetailsPage;
-
-export default OrderDetailsPage;

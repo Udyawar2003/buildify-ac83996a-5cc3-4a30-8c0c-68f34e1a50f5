@@ -29,5 +29,3 @@ const PaymentHistoryPage: React.FC = () => {
 };
 
 export default PaymentHistoryPage;
-
-export default PaymentHistoryPage;

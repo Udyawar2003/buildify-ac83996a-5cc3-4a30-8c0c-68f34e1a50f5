@@ -27,5 +27,3 @@ const AdminWalletPage: React.FC = () => {
 };
 
 export default AdminWalletPage;
-
-export default AdminWalletPage;

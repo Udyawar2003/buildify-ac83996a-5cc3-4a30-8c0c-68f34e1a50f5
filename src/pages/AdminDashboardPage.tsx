@@ -27,5 +27,3 @@ const AdminDashboardPage: React.FC = () => {
 };
 
 export default AdminDashboardPage;
-
-export default AdminDashboardPage;
