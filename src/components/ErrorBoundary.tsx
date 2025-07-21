@@ -58,7 +58,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     }
   }
 
-  triggerErrorOverlay(err) {
+  triggerErrorOverlay(err: Error) {
     const ErrorOverlay = customElements.get("vite-error-overlay");
 
     if (ErrorOverlay) {
